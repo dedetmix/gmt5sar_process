@@ -5,8 +5,9 @@
 # 04
 # script to prepare directory and process SBAS 
 # GMT5SAR processing for sentinel1A/B
-# 2017.02.22 "Noorlaila Hayati"
+# 2017.02.28 "Noorlaila Hayati"
 # email: n.isya@tu-braunschweig.de or noorlaila@geodesy.its.ac.id
+# correct: Bparalel --> Bperpendicular
 ######################################################################
 
   if [[ $# -ne 2 ]]; then
@@ -41,7 +42,7 @@ while read master slave
 do
 
 cd intf_all/"$master"_"$slave"
-rm unwrap.grd
+#rm unwrap.grd
 
 #crop corr.grd to match with unwrap.grd
 region=$(grep region_cut ../../batch_tops.config | awk '{print $3}')
@@ -54,13 +55,13 @@ slave_prm=$(head -n 2 tmp2 | tail -n 1)
 #echo $master_prm $slave_prm > tmp
 SAT_baseline "$master_prm" "$slave_prm" > tmp
 
-BPL=$(grep B_parallel tmp | awk '{print $3}')
+BPR=$(grep B_perpendicular tmp | awk '{print $3}')
 rm tmp*
 
 #make intf.tab file
 cd ../../SBAS
-echo ../intf_all/"$master"_"$slave"/unwrap.grd ../intf_all/"$master"_"$slave"/corr_crop.grd $master $slave $BPL >> intf.tab
-ln -s ../intf_all/"$master"_"$slave"/unwrap.grd .
+echo ../intf_all/"$master"_"$slave"/unwrap.grd ../intf_all/"$master"_"$slave"/corr_crop.grd $master $slave $BPR >> intf.tab
+ln -f -s ../intf_all/"$master"_"$slave"/unwrap.grd .
 cd ..
 done < "$1"
 
@@ -96,7 +97,7 @@ while read disp;
 do
 gambar="$disp".ps
 gmt grdimage $disp -Cvel_ll.cpt -JX6i -Bx1000 -By250 -BWeSn -P -K > $gambar
-gmt psscale -D1.3c/-1.2c/5c/0.2h -Cvel_ll.cpt -B30:"LOS displacement, mm":/:"range decrease": -P -J -R -O -X4 -Y20 >> $gambar
+gmt psscale -D1.3c/-1.2c/5c/0.2h -Cvel_ll.cpt -B30:"LOS displacement, mm":/:"range decrease": -P -J -O -X4 -Y20 >> $gambar
 
 ps2raster $gambar -Tj -E100
 #echo $disp
