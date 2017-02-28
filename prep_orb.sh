@@ -4,13 +4,14 @@
 # 02
 # script to prepare the precise orbit ephemeris (POEORB)
 # GMT5SAR processing for sentinel1A/B
-# 2017.01.30 "Noorlaila Hayati"
+# 2017.02.28 "Noorlaila Hayati"
 # email: n.isya@tu-braunschweig.de or noorlaila@geodesy.its.ac.id
 ######################################################################
 
-# download all POE file from https://qc.sentinel1.eo.esa.int/aux_poeorb/ or http://www.unavco.org/data/imaging/sar/lts1/winsar/s1qc/aux_poeorb/
-sen_orbit=/home/user/APPS/ciloto/sen_orbit/aux_poeorb/S1A #put the path download here
-raw_org=/home/user/APPS/ciloto/Sentinel1/batch_asc/raw_orig
+#use date_asc.txt
+
+sen_orbit=/home/isya/APPS/ciloto/sen_orbit/aux_poeorb/S1A
+raw_org=/home/isya/APPS/ciloto/Sentinel1/batch_asc/raw_orig
 dir=$(pwd)
 #rm $raw_org/*.EOF
 rm data_orb.txt
@@ -22,21 +23,21 @@ while read tanggal
 do
 
 cd $sen_orbit
-range=$((tanggal-1))
+yesterday=$( date -d "${tanggal} -1 days" +'%Y%m%d' )
 
-check=$(echo "$range" | awk '{print substr($0,7,2)}')
-if [ "$check" == "00" ]; then
-range_edit=$(echo "$range" | awk '{print substr($0,1,6)}')
-range2=$((range_edit-1))
-   check2=$(echo "$range" | awk '{print substr($0,5,2)}')
-   if [[ "$check2" != "01" && "$check2" != "03" && "$check2" != "05" && "$check2" != "07" && "$check2" != "08" && "$check2" != "10" && "$check2" !=  "12" ]]; then
-   range=$(echo "$range2"31)
-   else
-   range=$(echo "$range2"30)
-   fi
-fi
+#check=$(echo "$range" | awk '{print substr($0,7,2)}')
+#if [ "$check" == "00" ]; then
+#range_edit=$(echo "$range" | awk '{print substr($0,1,6)}')
+#range2=$((range_edit-1))
+#   check2=$(echo "$range" | awk '{print substr($0,5,2)}')
+#   if [[ "$check2" != "01" && "$check2" != "03" && "$check2" != "05" && "$check2" != "07" && "$check2" != "08" && #"$check2" != "10" && "$check2" !=  "12" ]]; then
+#   range=$(echo "$range2"31)
+#   else
+#   range=$(echo "$range2"30)
+#   fi
+#fi
 
-orb_fix=$(grep -r -l V"$range"T | head -1)
+orb_fix=$(grep -r -l V"$yesterday"T | head -1)
 ln -s $sen_orbit/"$orb_fix" $raw_org/.
 cd $raw_org
 ls *.EOF > data_orb.txt
