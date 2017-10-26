@@ -4,6 +4,9 @@ Based on example data S1A_Stack from GMT5SAR website, i modified the script to a
 
 Download prep_proc_SBAS.sh
 
+Note: - change the path to your batch_tops.config file location (line 51)
+      - change SBAS parameter to your area (line 90)
+
 ***
 
 If you are also interested to prepare directory and precise orbit ephemeris files, here
