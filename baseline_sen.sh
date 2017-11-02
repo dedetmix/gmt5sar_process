@@ -4,7 +4,7 @@
 
 # please set the parameters to your processing case
 ###################################################################
-inputfile=m_s_pairs.txt
+inputfile=temp_bperp_combination.txt
 raw_orig=/home/isya/APPS/ciloto/Sentinel1/batch_asc/raw_orig
 super_master=20160123
 dir=$(pwd)
@@ -24,7 +24,7 @@ day=$(echo "$super_master" | awk '{print substr($0,7,2)}')
 shopt -s extglob
 IFS=" "
 number=1
-while read master slave
+while read master slave temp bperp
 do
 
 cd $raw_orig
