@@ -15,7 +15,7 @@
     echo "  script to make master - slave configuration"
     echo ""
     echo "  temporal = threshold number for temporal baseline (days), example : 100"
-    echo "  perpendicular = thresholdnumber for perpendicular baseline (m), example : 100"
+    echo "  perpendicular = threshold number for spatial baseline (m), example : 100"
     echo ""
     echo "  example : pair_config.sh date_asc.txt 100 100 /home/user/batch/raw"
     echo ""
@@ -32,7 +32,6 @@
     exit 1
   fi
 
-#raw=/home/isya/APPS/ciloto/Sentinel1/batch_asc/raw
 infile=$1
 raw=$4
 
