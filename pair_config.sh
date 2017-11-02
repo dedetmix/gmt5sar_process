@@ -17,7 +17,7 @@
     echo "  temporal = limit parameter number for temporal baseline, example : 100"
     echo "  perpendicular = limit parameter number for perpendicular baseline, example : 100"
     echo ""
-    echo "  example : prep_proc_SBAS.sh date_asc.txt 100 100 /home/user/batch/raw"
+    echo "  example : pair_config.sh date_asc.txt 100 100 /home/user/batch/raw"
     echo ""
     echo "  format of date_asc.txt:"
     echo "                          20160101"
