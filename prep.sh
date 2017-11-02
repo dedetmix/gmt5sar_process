@@ -34,7 +34,7 @@ done < "$1"
 # input output name has to be different, change the output file name and replace the original
 # remember also the aux callibration is not applied to all interferograms, just the one which has different IPF version, > read Elevation Antenna Pattern (EAP) Contribution
 
-# run prep.sh every aux_cal, remember there are sentinel 1A and sentinel 1B 
+# run prep.sh to sentinel 1A aux_cal and sentinel 1B aux_cal (if exist)
 
 # finally run (on raw_orig folder):
 # --> preproc_batch_tops.csh data.in dem.grd 1 ,this step to prepare SBAS process (baseline_table.dat)
