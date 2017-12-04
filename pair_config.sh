@@ -37,7 +37,7 @@ raw=$4
 
 combination $infile
 
-rm -f temp_bperp_combination.txt result_combination.txt intf.in
+rm -f temp_bperp_combination.txt intf.in
 shopt -s extglob
 IFS=" "
 while read master slave
