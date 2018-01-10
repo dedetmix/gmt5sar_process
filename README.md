@@ -17,7 +17,9 @@ prep_orb.sh
 
 prep.sh
 
-Note: make sure that the path on every script has to be changed to your computer path!
+Note: 
+- make sure that the path on every script has to be changed to your computer path!
+- pair_config.sh and baseline_sen.sh are used to select master-slave combination pairs and draw them with GMT
 
 Happy processing 🙂
 
