@@ -48,7 +48,7 @@ cd intf_all/"$master"_"$slave"
 
 #crop corr.grd to match with unwrap.grd
 #region=$(grep region_cut ../../batch_tops.config | awk '{print $3}')
-region=$(grep region_cut /home/isya/APPS/ciloto/Sentinel1/batch_asc/batch_tops.config | awk '{print $3}')
+region=$(grep region_cut batch_tops.config | awk '{print $3}')
 gmt grdcut corr.grd -Gcorr_crop.grd -R$region -V
 
 ls *.PRM > tmp2
