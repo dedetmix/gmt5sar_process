@@ -65,7 +65,7 @@ then
     if [ "$BPR2" -gt -$3 ] && [ "$BPR2" -lt $3 ]
     then
 	echo $master $slave $temporal $BPR >> temp_bperp_combination.txt
-	echo "S1A"$master"_ALL_F2:S1A"$slave"_ALL_F2" >> intf.in
+	echo "S1_"$master"_ALL_F2:S1_"$slave"_ALL_F2" >> intf.in
     fi
 fi
 
