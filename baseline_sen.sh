@@ -28,9 +28,9 @@ while read master slave temp bperp
 do
 
 cd $raw_orig
-baseline_table.csh S1A"$super_master"_ALL_F2.PRM S1A"$master"_ALL_F2.PRM GMT > table.gmt
+baseline_table.csh S1_"$super_master"_ALL_F2.PRM S1_"$master"_ALL_F2.PRM GMT > table.gmt
 y_m=$(cat table.gmt | awk '{print $2}')
-baseline_table.csh S1A"$super_master"_ALL_F2.PRM S1A"$slave"_ALL_F2.PRM GMT > table.gmt
+baseline_table.csh S1_"$super_master"_ALL_F2.PRM S1_"$slave"_ALL_F2.PRM GMT > table.gmt
 y_s=$(cat table.gmt | awk '{print $2}')
 cd $dir
 year_m=$(echo "$master" | awk '{print substr($0,1,4)}')
