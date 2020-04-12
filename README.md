@@ -6,24 +6,19 @@ Based on example data S1A_Stack from GMT5SAR website, i modified the script to a
 
 Download prep_proc_SBAS.sh
 
-Note: - change the path to your batch_tops.config file location (line 51)
-      - change SBAS parameter to your area (line 90)
-
-***
-
 If you are also interested to prepare directory and precise orbit ephemeris files, here
 
 prep_dir.sh
-
 prep_orb.sh
-
 prep.sh
 
-Note: 
+# Note: 
+- change the path to your batch_tops.config file location (line 51)
+- change SBAS parameter to your area (line 90)
 - make sure that the path on every script has to be changed to your computer path!
 - pair_config.sh and baseline_sen.sh are used to select master-slave combination pairs and draw them with GMT
 
-The code:
+# The code:
 -take inputs and automatically generate the configuration file for gmtsar.
 -allows you to launch gmtsar from a button.
 
@@ -35,7 +30,7 @@ Installation of prep scripts:
 
 The project is under development is called on the develloper:
 
-To do:
+#  To do:
 1. beta tester
 2. convert bash scripts codes to python
 3. add plotting
@@ -44,11 +39,11 @@ To do:
 6. download sentinel-1 automatically
 7. add other SAR data
 
-Author and credits:
+# Author and credits:
 Bash scripts were primary coded by: 
-# 2017.01.30 "Noorlaila Hayati"
+2017.01.30 "Noorlaila Hayati"
 and organized: 
-# 2018.02.01  "Muhire Desire" 
+2018.02.01  "Muhire Desire" 
 
 MIT License
-Copyright (c) 2020 Noorlaila HayatiMUHIRE Desire
+Copyright (c) 2020 Noorlaila Hayati MUHIRE Desire
